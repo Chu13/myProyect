@@ -5,10 +5,29 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
-  <body>
+  <body class="<%= bodyClass %> ">
+      <nav>
+        <a class="home" href="/"> Travelers Blog </a>
 
-    <a href="/signup">Sign up</a>
-    <a href='/signin'> Sign in </a>
+        <% if (currentUser) { %>
+        <b class="user-display"> <%= currentUser.fullName %> </b>
+        <% } %>
+
+        <div class="nav-right">
+          <% if (currentUser) { %>
+          <a href="/profile"> Profile </a>
+          <a href="/places"> Places </a>
+          <a href="/logout"> Log Out </a>
+
+          <% } else { %>
+
+          <a href="/login"> Log In </a>
+          <a href="/signup"> Sign Up </a>
+
+          <% } %>
+        </div>
+          </nav>
+
     <%- body %>
   </body>
 </html>

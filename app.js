@@ -10,7 +10,7 @@ const passport     = require('passport');
 
 
 require("./config/mongoose-setup");
-
+require("./config/passport-setup");
 
 const app = express();
 
@@ -20,6 +20,8 @@ app.set('view engine', 'ejs');
 
 // default value for title local
 app.locals.title = 'Travelers Blog';
+
+app.locals.bodyClass = "homepage";
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -40,6 +42,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+
+  next();
+});
 
 
 
@@ -48,7 +55,11 @@ app.use(passport.session());
 const index = require('./routes/index');
 app.use('/', index);
 
+const myUserRouter = require("./routes/user-router");
+app.use(myUserRouter);
 
+const myPlaceRouter = require("./routes/place-router");
+app.use(myPlaceRouter);
 
 // -----------------------------------
 
@@ -56,6 +67,7 @@ app.use('/', index);
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
+  res.locals.bodyClass = "error-page";
   next(err);
 });
 

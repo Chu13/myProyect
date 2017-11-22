@@ -11,6 +11,7 @@ const userSchema = new Schema(
         type: String,
         required:[true, "Tell use your name."]
       },
+
       email: {
           type: String,
           match: [/.+@.+/, "Emails need an @ sign"]
@@ -23,7 +24,7 @@ const userSchema = new Schema(
 
       role: {
         type: String,
-      
+
         enum: ['normal', 'admin'],
         default: "normal"
       }

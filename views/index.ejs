@@ -1,2 +1,36 @@
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+
+
+<div class="index">
+  <h1><%= title %></h1>
+
+  <form  action="/search" method="get">
+    <label for="search-input"> Search Places Here </label>
+    <br />
+    <input id="search-input" type="search" placeholder="search by country"
+      name="placeSearch" />
+    <input type="submit" class="submit_3" value="Search" />
+  </form>
+
+</div>
+
+
+<h3> List of Places </h3>
+
+
+<% if(currentUser) { %>
+   <a href="/places"> View full List </a>
+<% } %>
+
+<ul>
+  <%  listOfPlaces.forEach((onePlace) => { %>
+        <li>
+          <h3> <%= onePlace.name %> </h3>
+          <p> <%=onePlace.country %> </p>
+        </li>
+
+        <a href="/places/details/<%=onePlace._id%>">
+             View Details
+        </a>
+
+  <% }) %>
+</ul>

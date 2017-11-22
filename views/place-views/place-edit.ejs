@@ -1,0 +1,42 @@
+
+<h2> Edit This Product </h2>
+
+<% if (typeof validationErrors !== "undefined") { %>
+  <ul class="error-message">
+    <% for (let field in validationErrors) { %>
+      <li class="list"> <%= validationErrors[field].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+
+
+<form id="form" method="post" action="/places/<%= placeDetails._id %>">
+  <label for="place-name-input"> Place Name </label>
+  <input  id="place-name-input" type="text" placeholder="e.g. Baby Beach"
+      name="placeName" value="<%= placeDetails.name %>" />
+  <br />
+
+  <label for="place-country-input"> Place Country</label>
+  <input  id="place-country-input" type="text"
+      placeholder="e.g. Aruba" name="placeCountry"
+      value="<%= placeDetails.country %>" />
+  <br />
+
+  <label for="place-city-input"> Place City </label>
+  <input  id="place-city-input" type="text"
+      placeholder="e.g. Saint Nicholas" name="placeCity"
+      value="<%= placeDetails.city %>" />
+  <br />
+
+  <label for="place-image-input"> Image URL </label>
+  <input  id="place-image-input" type="text"
+      placeholder="e.g. http://example.com/beach.jpg" name="placeImage"
+      value="<%= placeDetails.image %>" />
+  <br />
+
+  <h3> Current Image </h3>
+  <img src="<%= placeDetails.image %>" width="100px;" />
+  <br />
+
+  <button> Save Changes </button>
+</form>
