@@ -21,15 +21,20 @@ const tripSchema = new Schema(
       },
       image: {
         type: String,
+        required:[true, "Add an image of your trip"]
       },
       story: {
         type: String,
-        min: 100,
+        min: 50,
         required: [true, "Tell your trip story"]
       }
-  }
+  },
+
+      {
+        timestamps: true
+      }
 );
 
-const PlaceModel = mongoose.model("Place", placeSchema);
+const TripModel = mongoose.model("Trip", tripSchema);
 
 module.exports = PlaceModel;

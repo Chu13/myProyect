@@ -114,6 +114,37 @@ router.post("/process-login", (req, res, next) => {
     });
 });
 
+// Facebook LOGIN -----------------------------------------------
+
+router.get("/facebook/login", passport.authenticate("facebook"));
+
+
+router.get("/facebook/success",
+  passport.authenticate("facebook", {
+      successRedirect: "/",
+      failureRedirect: "/login"
+  })
+);
+
+
+// Google LOGIN ------------------------------------------------
+router.get("/google/login",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/plus.profile.emails.read"
+    ]
+  })
+);
+
+
+
+router.get("/google/success",
+passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/login"
+})
+);
 
 //LOGOUT -------------------------------------------------------
 

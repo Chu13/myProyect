@@ -10,11 +10,12 @@
         <a class="home" href="/"> Travelers Blog </a>
 
         <% if (currentUser) { %>
-        <b class="user-display"> <%= currentUser.fullName %> </b>
+
         <% } %>
 
         <div class="nav-right">
           <% if (currentUser) { %>
+          <b class="user-display"> <%= currentUser.fullName %> </b>  
           <a href="/profile"> Profile </a>
           <a href="/places"> Places </a>
           <a href="/logout"> Log Out </a>

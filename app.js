@@ -61,6 +61,8 @@ app.use(myUserRouter);
 const myPlaceRouter = require("./routes/place-router");
 app.use(myPlaceRouter);
 
+const myTripRouter = require("./routes/trip-router");
+app.use(myTripRouter);
 // -----------------------------------
 
 // catch 404 and forward to error handler

@@ -13,24 +13,26 @@
 
 </div>
 
+<div class="index-list">
 
 <h3> List of Places </h3>
 
 
-<% if(currentUser) { %>
-   <a href="/places"> View full List </a>
-<% } %>
+  <% if(currentUser) { %>
+     <a class="full-list" href="/places"> View full List </a>
+  <% } %>
+</div>
 
-<ul>
-  <%  listOfPlaces.forEach((onePlace) => { %>
-        <li>
-          <h3> <%= onePlace.name %> </h3>
-          <p> <%=onePlace.country %> </p>
-        </li>
+  <ul class="list">
+    <%  listOfPlaces.forEach((onePlace) => { %>
+          <li>
+            <h3> <%= onePlace.name %> </h3>
+            <p> <%=onePlace.country %> </p>
+          </li>
 
-        <a href="/places/details/<%=onePlace._id%>">
-             View Details
-        </a>
+          <a href="/places/details/<%=onePlace._id%>">
+               View Details
+          </a>
 
-  <% }) %>
-</ul>
+    <% }) %>
+  </ul>
