@@ -1,0 +1,14 @@
+<a class="edit-place" href="/trip/<%= tripDetails._id %>/edit"> Edit Trip</a>
+
+<div class="place-details">
+  <h1> <%= tripDetails.name %> </h1>
+
+  <h3> <%= tripDetails.country %> </h3>
+
+  <h4> <%= tripDetails.city %> </h4>
+
+  <img src="<%= tripDetails.image %>">
+  <div class="place-description">
+    <p> <%= tripDetails.story %> </p>
+  </div>
+</div>

@@ -44,7 +44,71 @@ router.post("/trips", (req, res, next) => {
   });
 });
 
+router.get("/trip/details/:Id", (req, res, next) => {
+    TripModel.findById(req.params.Id)
+    .then((tripFromDb) => {
+      res.locals.tripDetails = tripFromDb;
+      res.render("trip-views/trip-details");
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
+// Place Edit Form
+router.get("/trip/:Id/edit", (req, res, next) => {
+
+    TripModel.findById(req.params.Id)
+      .then((tripFromDb) => {
+
+          res.locals.tripDetails = tripFromDb;
+
+          res.render("trip-views/trip-edit");
+      })
+      .catch((err) => {
+
+          next(err);
+      });
+});
+
+
+// Receive the edit submission
+router.post("/trip/:Id", (req, res, next) => {
+
+    TripModel.findById(req.params.Id)
+      .then((tripFromDb) => {
+
+          tripFromDb.set({
+              name:    req.body.tripName,
+              country: req.body.tripCountry,
+              city:    req.body.tripCity,
+              image:   req.body.tripImage,
+              story: req.body.tripStory
+          });
+
+
+          res.locals.tripDetails = tripFromDb;
+
+
+          return tripFromDb.save();
+      })
+      .then(() => {
+
+          res.redirect(`/trip/details/${req.params.Id}`);
+
+      })
+      .catch((err) => {
+
+          if (err.errors) {
+              res.locals.validationErrors = err.errors;
+              res.render("trip-views/trip-edit");
+          }
+
+          else {
+              next(err);
+          }
+      });
+});
 
 
 

@@ -67,13 +67,6 @@ router.get("/places/details/:Id", (req, res, next) => {
     PlaceModel.findById(req.params.Id)
     .then((placeFromDb) => {
       res.locals.placeDetails = placeFromDb;
-
-      return TripModel
-      .find({ name: placeFromDb.name })
-      .exec();
-    })
-    .then((tripFromDb) => {
-      res.locals.listOfTrips = tripResults;
       res.render("place-views/place-details");
     })
     .catch((err) => {

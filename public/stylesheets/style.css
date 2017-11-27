@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 .homepage {
   /*padding: 50px;*/
@@ -80,7 +81,7 @@ a {
 
 .center-header{
   text-align: center;
-  margin: 20 auto;
+  margin: 20px auto;
 }
 
 nav {
@@ -133,7 +134,7 @@ nav {
 }
 
 .index-list-place .list {
-  padding: 50px;
+  padding: 40px;
   text-align: center;
   line-height: 50px;
 }
@@ -149,8 +150,16 @@ nav {
 }
 
 .place-details h1{
-  margin: 30px;
+  margin: 20px;
   padding-top: 20px;
+}
+
+.place-details h3 {
+  margin: 10px;
+}
+
+.place-details h4 {
+  margin: 10px;
 }
 
 .place-details img{
@@ -160,7 +169,10 @@ nav {
 }
 
 .place-description{
+  margin: 0 auto;
+  max-width: 600px;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .edit-place {
@@ -171,6 +183,7 @@ nav {
 .list{
   list-style-type: none;
 }
+
 
 .index-list{
   text-align: center;
@@ -215,6 +228,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 #search-input{
@@ -257,7 +271,7 @@ nav {
 
 .places-list-header{
   text-align: center;
-  margin: 50px; auto;
+  margin: 50px auto;
 
 }
 
@@ -272,13 +286,15 @@ nav {
 
 .user-info-col{
   width: 23%;
-  margin-left: 70px;
-
+  margin-left: 50px;
 }
 
 .left{
-  padding-left: 30px;
+  margin-left: 20px;
 }
+
+
+
 
 .user-info-col img{
   max-width: 100px;

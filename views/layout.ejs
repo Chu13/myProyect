@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body class="<%= bodyClass %> ">
@@ -15,7 +16,7 @@
 
         <div class="nav-right">
           <% if (currentUser) { %>
-          <b class="user-display"> <%= currentUser.fullName %> </b>  
+          <b class="user-display"> <%= currentUser.fullName %> </b>
           <a href="/profile"> Profile </a>
           <a href="/places"> Places </a>
           <a href="/logout"> Log Out </a>
