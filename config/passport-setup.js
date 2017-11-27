@@ -36,7 +36,10 @@ passport.use(
         clientSecret: process.env.FACEBOOK_SECRET,
 
 
-        callbackURL: "/facebook/success"
+        callbackURL: "/facebook/success",
+
+
+        proxy: true
     },
 
 
