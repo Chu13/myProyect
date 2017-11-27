@@ -293,8 +293,13 @@ nav {
   margin-left: 20px;
 }
 
-
-
+.delete{
+  display: block;
+  font-size: 2em;
+  text-align: center;
+  margin: 10px auto;
+  color: red;
+}
 
 .user-info-col img{
   max-width: 100px;

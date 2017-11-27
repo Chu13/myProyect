@@ -111,7 +111,15 @@ router.post("/trip/:Id", (req, res, next) => {
 });
 
 
-
+router.get("/trip/:Id/delete", (req, res, next) => {
+  TripModel.findByIdAndRemove(req.params.Id)
+  .then((tripFromDb) => {
+    res.redirect("/products");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
 
 
 
