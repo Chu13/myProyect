@@ -1,7 +1,53 @@
 
+
+
 <div class="profile">
-  <a class ="edit-profile" href="/settings"> Edit Profile </a>
-<h1> <%= currentUser.fullName %> </h1>
+  <div class="profile-pic">
+  </div>
+  <a class ="edit-profile" href="/profile/edit"> Edit Profile </a>
+  <h1 class="profile-name"> <%= currentUser.fullName %> </h1>
 </div>
 
-<a href="/trips/new"> Add a new trip</a>
+<div class="user-info">
+  <div class="user-info-col left">
+    <img src="./images/user-home.png"/>
+    <h4>Residence:</h4>
+    <% if (currentUser.residence !== undefined){ %>
+        <p> <%= currentUser.residence %> </p>
+    <% } %>
+  </div>
+  <div class="user-info-col">
+    <img src="./images/earth.png" />
+    <h4>Nationality:</h4>
+    <% if (currentUser.nationality !== undefined){ %>
+        <p> <%= currentUser.nationality %> </p>
+    <% } %>
+  </div>
+  <div class="user-info-col">
+    <img src="./images/Date.png" />
+    <h4>Date of birth:</h4>
+  <% if (currentUser.birthday !== undefined){ %>
+      <p> <%= currentUser.birthday %> </p>
+  <% } %>
+  </div>
+</div>
+
+<div class="index-list">
+  <h1> My Trips </h1>
+  <a href="/trips/new"> Add a new trip</a>
+</div>
+
+<%  listOfTrips.forEach((oneTrip) => { %>
+  <div class="index-list-place">
+    <ul class="list">
+      <li>
+        <h3> <%= oneTrip.name %> </h3>
+        <p> <%= oneTrip.country %> </p>
+      </li>
+
+      <a href="">
+           View Details
+      </a>
+      </ul>
+    </div>
+<% }) %>

@@ -1,6 +1,13 @@
 <h1> Add a new Trip </h1>
 
-<form id="form" method="post" action="/places">
+<% if(typeof errorMessage !== "undefined") { %>
+  <p class="error-message">
+  <%= errorMessage %>
+  </p>
+<% } %>
+
+
+<form id="form" method="post" action="/trips">
   <label for="trip-place-input"> Place Name </label>
   <input id="trip-place-input" type="text" placeholder="e.g. Playa Caribe"
       name="placeName" />

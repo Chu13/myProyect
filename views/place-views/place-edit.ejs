@@ -1,5 +1,5 @@
 
-<h2> Edit This Product </h2>
+<h2 class="places-list-header"> Edit This Place </h2>
 
 <% if (typeof validationErrors !== "undefined") { %>
   <ul class="error-message">
@@ -27,6 +27,11 @@
       placeholder="e.g. Saint Nicholas" name="placeCity"
       value="<%= placeDetails.city %>" />
   <br />
+
+    <label for="place-description-input"> Place Description </label>
+    <input  id="place-description-input" type="text" placeholder="e.g. Beautiful beach...."
+        name="placeDescription" value="<%= placeDetails.description %>" />
+    <br />
 
   <label for="place-image-input"> Image URL </label>
   <input  id="place-image-input" type="text"

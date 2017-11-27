@@ -1,18 +1,20 @@
-<h2> Search Results </h2>
+<h2 class="places-list-header"> Search Results </h2>
 
 
-<ul>
+<ul class="list">
    <% listOfResults.forEach((onePlace) => { %>
-     <li>
-       <h3> <%= onePlace.name %> </h3>
-       <p> <%=onePlace.country %> </p>
-       <img src="<%=onePlace.image %>" />
-     </li>
-     <li>
+     <div class="places-list">
+       <li>
+         <h3> <%= onePlace.name %> </h3>
+         <p> <%=onePlace.country %> </p>
+         <img src="<%=onePlace.image %>" />
+       </li>
+       <li>
 
-       <a href="/places/details/<%=onePlace._id%>">
-          View Details
-       </a>
-     </li>
+         <a href="/places/details/<%=onePlace._id%>">
+            View Details
+         </a>
+       </li>
+     </div>
    <% }) %>
 </ul>

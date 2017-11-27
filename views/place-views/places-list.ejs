@@ -1,19 +1,22 @@
-<h1>Full List of Places</h1>
+<h1 class="places-list-header">Full List of Places</h1>
 
-<a href="places/new"> Add a new Place </a>
 
 <ul class="list">
   <%  listOfPlaces.forEach((onePlace) => { %>
-    <li>
-      <h3> <%= onePlace.name %> </h3>
-      <p> <%=onePlace.country %> </p>
-      <img src="<%=onePlace.image %>" />
-    </li>
-    <li>
+    <div class="places-list">
+      <li>
+        <h3> <%= onePlace.name %> </h3>
+        <p> <%=onePlace.country %> </p>
+        <img src="<%=onePlace.image %>" />
+      </li>
+      <li>
 
-      <a href="/places/details/<%=onePlace._id%>">
-         View Details
-      </a>
-    </li>
+        <a href="/places/details/<%=onePlace._id%>">
+           View Details
+        </a>
+      </li>
+    </div>
   <%  })  %>
 </ul>
+
+<a class="new-place" href="places/new"> Add a new Place </a>

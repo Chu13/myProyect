@@ -4,6 +4,7 @@ const passport = require("passport");
 
 const UserModel = require("../models/user-models");
 const PlaceModel = require("../models/place-models");
+const TripModel = require("../models/trip-models");
 
 const router = express.Router();
 
@@ -158,8 +159,41 @@ router.get("/logout", (req, res, next) => {
 
 // Profile ---------------------------------------------------
 router.get("/profile", (req, res, next) => {
-  res.render("user-views/user-profile");
+  TripModel
+  .find({ owner: req.user._id })
+  .sort({ name: 1 })
+  .exec()
+  .then((tripResults) => {
+    res.locals.listOfTrips = tripResults;
+    res.render("user-views/user-profile");
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
+router.get("/profile/edit", (req, res, next) => {
+  res.render("user-views/profile-edit");
+});
+
+router.post("/profile", (req, res, next) => {
+  UserModel.findById(req.user)
+  .then((userFromDb) => {
+    userFromDb.set({
+      residence:   req.body.userResidence,
+      nationality: req.body.userNationality,
+      birthday:    req.body.userDate
+    });
+
+    return userFromDb.save();
+  })
+  .then(() => {
+    res.redirect("/profile");
+  })
+  .catch((err) => {
+
+    next(err);
+  });
+});
 
 module.exports = router;

@@ -68,6 +68,12 @@ router.get("/places/details/:Id", (req, res, next) => {
     .then((placeFromDb) => {
       res.locals.placeDetails = placeFromDb;
 
+      return TripModel
+      .find({ name: placeFromDb.name })
+      .exec();
+    })
+    .then((tripFromDb) => {
+      res.locals.listOfTrips = tripResults;
       res.render("place-views/place-details");
     })
     .catch((err) => {
@@ -102,7 +108,8 @@ router.post("/places/:Id", (req, res, next) => {
               name:    req.body.placeName,
               country: req.body.placeCountry,
               city:    req.body.placeCity,
-              image:   req.body.placeImage
+              image:   req.body.placeImage,
+              description: req.body.placeDescription
           });
 
 
@@ -113,7 +120,7 @@ router.post("/places/:Id", (req, res, next) => {
       })
       .then(() => {
 
-          res.redirect(`/products/${req.params.Id}`);
+          res.redirect(`/places/details/${req.params.Id}`);
 
       })
       .catch((err) => {

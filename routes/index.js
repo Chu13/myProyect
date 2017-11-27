@@ -7,8 +7,8 @@ const PlaceModel = require('../models/place-models');
 router.get('/', (req, res, next) => {
   PlaceModel
   .find()
-  .limit(10)
-  .sort({ dateAdded: -1})
+  .limit(8)
+  .sort({ dateAdded: 1})
   .exec()
   .then((PlacesResults) => {
     res.locals.listOfPlaces = PlacesResults;
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
-// Process the search form ins the index page 
+// Process the search form in the index page
 router.get('/search', (req, res, next) => {
   const searchRegex = new RegExp(req.query.placeSearch, "i");
     PlaceModel

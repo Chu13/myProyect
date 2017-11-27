@@ -6,4 +6,22 @@
   <h3> <%= placeDetails.country %> </h3>
 
   <img src="<%= placeDetails.image %>">
+  <div class="place-description">
+    <p> <%= placeDetails.description %> </p>
+  </div>
 </div>
+
+<%  listOfTrips.forEach((oneTrip) => { %>
+  <div class="index-list-place">
+    <ul class="list">
+      <li>
+        <h3> <%= oneTrip.name %> </h3>
+        <p> <%= oneTrip.country %> </p>
+      </li>
+
+      <a href="">
+           View Details
+      </a>
+      </ul>
+    </div>
+<% }) %>

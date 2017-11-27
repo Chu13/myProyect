@@ -27,7 +27,10 @@ const userSchema = new Schema(
 
         enum: ['normal', 'admin'],
         default: "normal"
-      }
+      },
+      residence:{ type: String },
+      nationality: { type: String },
+      birthday: { type: String },
   },
 
   {

@@ -31,9 +31,9 @@ passport.use(
 
     {
 
-        clientID:     "?????",
+        clientID:     process.env.FACEBOOK_ID,
 
-        clientSecret: "?????",
+        clientSecret: process.env.FACEBOOK_SECRET,
 
 
         callbackURL: "/facebook/success"
@@ -82,8 +82,8 @@ passport.use(
 
     {
 
-        clientID: "?????",
-        clientSecret: "?????",
+        clientID: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
 
 
         callbackURL: "/google/success",

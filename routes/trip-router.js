@@ -4,6 +4,7 @@ const passport = require("passport");
 
 const UserModel = require("../models/user-models");
 const PlaceModel = require("../models/place-models");
+const TripModel = require("../models/trip-models");
 
 const router = express.Router();
 
@@ -20,7 +21,8 @@ router.post("/trips", (req, res, next) => {
     country: req.body.placeCountry,
     city: req.body.placeCity,
     image: req.body.placeImage,
-    description: req.body.placeStory,
+    story: req.body.placeStory,
+    owner: req.user,
     dateAdded: new Date()
   });
 
@@ -32,7 +34,7 @@ router.post("/trips", (req, res, next) => {
 
   })
   .catch((err) => {
-    if(thePlace.errors) {
+    if(theTrip.errors) {
       res.locals.validationErrors = err.errors;
       res.render("trip-views/trip-form");
     }
@@ -41,6 +43,12 @@ router.post("/trips", (req, res, next) => {
   }
   });
 });
+
+
+
+
+
+
 
 
 module.exports = router;

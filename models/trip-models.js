@@ -27,6 +27,9 @@ const tripSchema = new Schema(
         type: String,
         min: 50,
         required: [true, "Tell your trip story"]
+      },
+      owner:{
+        type: Schema.Types.ObjectId
       }
   },
 
@@ -37,4 +40,4 @@ const tripSchema = new Schema(
 
 const TripModel = mongoose.model("Trip", tripSchema);
 
-module.exports = PlaceModel;
+module.exports = TripModel;

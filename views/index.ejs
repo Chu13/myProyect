@@ -3,14 +3,13 @@
 <div class="index">
   <h1><%= title %></h1>
 
-  <form  action="/search" method="get">
-    <label for="search-input"> Search Places Here </label>
-    <br />
+  <div class="searchBar">
+    <form action="/search" method="get">
     <input id="search-input" type="search" placeholder="search by country"
       name="placeSearch" />
-    <input type="submit" class="submit_3" value="Search" />
-  </form>
-
+    <input type="submit" class="searchButton" value="search" />
+    </form>
+  </div>
 </div>
 
 <div class="index-list">
@@ -23,8 +22,9 @@
   <% } %>
 </div>
 
-  <ul class="list">
     <%  listOfPlaces.forEach((onePlace) => { %>
+      <div class="index-list-place">
+        <ul class="list">
           <li>
             <h3> <%= onePlace.name %> </h3>
             <p> <%=onePlace.country %> </p>
@@ -33,6 +33,6 @@
           <a href="/places/details/<%=onePlace._id%>">
                View Details
           </a>
-
+          </ul>
+        </div>
     <% }) %>
-  </ul>
