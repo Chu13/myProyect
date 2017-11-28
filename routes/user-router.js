@@ -191,6 +191,7 @@ router.post("/profile", (req, res, next) => {
   UserModel.findById(req.user)
   .then((userFromDb) => {
     userFromDb.set({
+      picture:     req.body.profilePicture,
       residence:   req.body.userResidence,
       nationality: req.body.userNationality,
       birthday:    req.body.userDate

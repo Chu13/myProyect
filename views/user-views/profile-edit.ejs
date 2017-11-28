@@ -1,6 +1,13 @@
 <h2 class="places-list-header">Edit your Profile</h2>
 
 <form id="form" method="post" action="/profile" />
+
+    <label for="picture-input"> Profile Pic URL </label>
+    <input id="picture-input" type="text"
+      placeholder="e.g. https://example.com/paradise.gif" name="profilePicture"
+      value="<%= userDetails.picture %>" />
+    <br />
+
     <label for="residence-input"> Place of Residence </label>
     <input id="residence-input" type="text" placeholder="e.g. Barcelona, Spain"
         name="userResidence"  value="<%= userDetails.residence %>"/>
