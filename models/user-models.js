@@ -27,6 +27,10 @@ const userSchema = new Schema(
         enum: ['normal', 'admin'],
         default: "normal"
       },
+      picture: {
+        type: String,
+        default: "/images/default-profile.png"
+      },
       residence:{ type: String },
       nationality: { type: String },
       birthday: { type: String },
