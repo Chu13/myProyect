@@ -4,6 +4,7 @@ const passport = require("passport");
 
 const UserModel = require("../models/user-models");
 const PlaceModel = require("../models/place-models");
+const TripModel = require("../models/trip-models");
 
 const router = express.Router();
 
@@ -64,15 +65,29 @@ router.post("/places", (req, res, next) => {
 
 // Show the place details
 router.get("/places/details/:Id", (req, res, next) => {
+
+  if(req.user === undefined){
+    res.redirect("/login");
+    return;
+  }
+
     PlaceModel.findById(req.params.Id)
     .then((placeFromDb) => {
       res.locals.placeDetails = placeFromDb;
+
+      return TripModel
+      .find({ place: req.params.Id })
+      .exec();
+    })
+    .then((tripResults) => {
+      res.locals.listOfTrips = tripResults;
       res.render("place-views/place-details");
     })
     .catch((err) => {
       next(err);
     });
 });
+
 
 // Place Edit Form
 router.get("/places/:Id/edit", (req, res, next) => {

@@ -1,4 +1,7 @@
-<a class="edit-place" href="/trip/<%= tripDetails._id %>/edit"> Edit Trip</a>
+
+ <% if (tripDetails.owner.toString() === currentUser._id.toString()) { %>
+  <a class="edit-place" href="/trip/<%= tripDetails._id %>/edit"> Edit Trip</a>
+ <% } %>
 
 <div class="place-details">
   <h1> <%= tripDetails.name %> </h1>
@@ -8,6 +11,8 @@
   <h4> <%= tripDetails.city %> </h4>
 
   <img src="<%= tripDetails.image %>">
+
+  <h3> Post by:  <a href="/profile/<%=tripDetails.owner%>"><%= userDetails.fullName %></a></h3>
   <div class="place-description">
     <p> <%= tripDetails.story %> </p>
   </div>

@@ -1,34 +1,31 @@
-
-
-
 <div class="profile">
   <div class="profile-pic">
-    <img src="<%= currentUser.avatar %>"/>
+    <img src="<%= userDetails.avatar %>"/>
   </div>
-  <a class ="edit-profile" href="/profile/edit"> Edit Profile </a>
-  <h1 class="profile-name"> <%= currentUser.fullName %> </h1>
+
+  <h1 class="profile-name"> <%= userDetails.fullName %> </h1>
 </div>
 
 <div class="user-info">
   <div class="user-info-col left">
-    <img src="./images/user-home.png"/>
+    <img src="../images/user-home.png"/>
     <h4>Residence:</h4>
-    <% if (currentUser.residence !== undefined){ %>
-        <p> <%= currentUser.residence %> </p>
+    <% if (userDetails.residence !== undefined){ %>
+        <p> <%= userDetails.residence %> </p>
     <% } %>
   </div>
   <div class="user-info-col">
-    <img src="./images/earth.png" />
+    <img src="../images/earth.png" />
     <h4>Nationality:</h4>
-    <% if (currentUser.nationality !== undefined){ %>
-        <p> <%= currentUser.nationality %> </p>
+    <% if (userDetails.nationality !== undefined){ %>
+        <p> <%= userDetails.nationality %> </p>
     <% } %>
   </div>
   <div class="user-info-col">
-    <img src="./images/Date.png" />
+    <img src="../images/Date.png" />
     <h4>Date of birth:</h4>
-  <% if (currentUser.birthday !== undefined){ %>
-      <p> <%= currentUser.birthday %> </p>
+  <% if (userDetails.birthday !== undefined){ %>
+      <p> <%= userDetails.birthday %> </p>
   <% } %>
   </div>
 </div>

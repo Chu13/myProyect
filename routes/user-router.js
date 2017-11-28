@@ -5,6 +5,7 @@ const passport = require("passport");
 const UserModel = require("../models/user-models");
 const PlaceModel = require("../models/place-models");
 const TripModel = require("../models/trip-models");
+const myUploader = require("../config/multer-setup");
 
 const router = express.Router();
 
@@ -172,8 +173,18 @@ router.get("/profile", (req, res, next) => {
   });
 });
 
+
+
 router.get("/profile/edit", (req, res, next) => {
-  res.render("user-views/profile-edit");
+  UserModel.findById(req.user)
+  .then((userFromDb) => {
+    res.locals.userDetails = userFromDb;
+    res.render("user-views/profile-edit");
+  })
+  .catch((err) => {
+
+    next(err);
+  });
 });
 
 router.post("/profile", (req, res, next) => {
@@ -184,7 +195,6 @@ router.post("/profile", (req, res, next) => {
       nationality: req.body.userNationality,
       birthday:    req.body.userDate
     });
-
     return userFromDb.save();
   })
   .then(() => {
@@ -192,6 +202,24 @@ router.post("/profile", (req, res, next) => {
   })
   .catch((err) => {
 
+    next(err);
+  });
+});
+
+router.get("/profile/:Id", (req, res, next) => {
+  UserModel.findById(req.params.Id)
+  .then((userFromDb) => {
+    res.locals.userDetails = userFromDb;
+  return TripModel
+  .find({ owner: req.params.Id })
+  .sort({name: 1})
+  .exec();
+  })
+  .then((tripResults) => {
+    res.locals.listOfTrips = tripResults;
+    res.render("user-views/other-profile");
+  })
+  .catch((err) => {
     next(err);
   });
 });

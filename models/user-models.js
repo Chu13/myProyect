@@ -11,7 +11,6 @@ const userSchema = new Schema(
         type: String,
         required:[true, "Tell use your name."]
       },
-
       email: {
           type: String,
           match: [/.+@.+/, "Emails need an @ sign"]

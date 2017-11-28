@@ -5,7 +5,7 @@
 
   <div class="searchBar">
     <form action="/search" method="get">
-    <input id="search-input" type="search" placeholder="search by country"
+    <input id="search-input" type="search" placeholder="  Search by country"
       name="placeSearch" />
     <input type="submit" class="searchButton" value="search" />
     </form>
@@ -22,6 +22,7 @@
   <% } %>
 </div>
 
+  <div class="container">
     <%  listOfPlaces.forEach((onePlace) => { %>
       <div class="index-list-place">
         <ul class="list">
@@ -36,3 +37,4 @@
           </ul>
         </div>
     <% }) %>
+  </div>

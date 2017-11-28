@@ -21,6 +21,12 @@ router.get('/', (req, res, next) => {
 
 // Process the search form in the index page
 router.get('/search', (req, res, next) => {
+
+  if(req.user === undefined){
+    res.redirect("/login");
+    return;
+  }
+
   const searchRegex = new RegExp(req.query.placeSearch, "i");
     PlaceModel
     .find({ country: searchRegex })

@@ -3,17 +3,18 @@
 <form id="form" method="post" action="/profile" />
     <label for="residence-input"> Place of Residence </label>
     <input id="residence-input" type="text" placeholder="e.g. Barcelona, Spain"
-        name="userResidence" />
+        name="userResidence"  value="<%= userDetails.residence %>"/>
     <br />
 
     <label for-"nationality-input"> Nationality </label>
     <input id="nationality-input" type="text" placeholder="e.g Venezuelan"
-        name="userNationality" />
+        name="userNationality" value="<%= userDetails.nationality %>"/>
     <br />
 
     <label for="birthday-input"> Date of Birth </label>
-    <input id="birthday-input" type="date" name="userDate" />
+    <input id="birthday-input" type="date" name="userDate"
+    value="<%= userDetails.birthday %>" />
     <br />
 
-  <button> Submmit </button>
+  <button> Submmit Changes </button>
 </form>

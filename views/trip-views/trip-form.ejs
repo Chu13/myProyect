@@ -7,20 +7,21 @@
 <% } %>
 
 
-<form id="form" method="post" action="/trips">
+<form id="form" method="post" action="/places/<%= placeDetails._id %>/trip %>">
   <label for="trip-place-input"> Place Name </label>
   <input id="trip-place-input" type="text" placeholder="e.g. Playa Caribe"
-      name="placeName" />
+    value="<%= placeDetails.name %>"  name="placeName" />
   <br />
 
   <label for="trip-country-input"> Place Country </label>
   <input id="trip-country-input" type="text"
-      placeholder=" e.g. Venezuela" name="placeCountry" />
+      placeholder=" e.g. Venezuela" value="<%= placeDetails.country %>"
+      name="placeCountry" />
   <br />
 
   <label for="trip-city-input"> Place City </label>
-  <input id="trip-city-input" type="text"
-      placeholder=" e.g. Margarita" name="placeCity" />
+  <input id="trip-city-input" type="text"placeholder=" e.g. Margarita"
+    value="<%= placeDetails.city %>" name="placeCity" />
   <br />
 
   <label for="trip-image-input"> Image URL </label>

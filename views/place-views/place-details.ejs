@@ -14,3 +14,25 @@
 </div>
 
 <h2 class="places-list-header"> Trips to this place </h2>
+
+<div class="container">
+  <%  listOfTrips.forEach((oneTrip) => { %>
+    <div class="index-list-place">
+      <ul class="list">
+        <li>
+          <h3> <%= oneTrip.name %> </h3>
+          <p> <%= oneTrip.country %> </p>
+        </li>
+
+        <a href="/trip/details/<%= oneTrip._id %>">
+             View Details
+        </a>
+        </ul>
+      </div>
+  <% }) %>
+</div>
+
+<a class="add-trip" href="/places/<%= placeDetails._id %>/trip/new">
+   Add a your trip to this place
+ </a>
+<br />

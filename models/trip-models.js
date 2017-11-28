@@ -30,7 +30,11 @@ const tripSchema = new Schema(
       },
       owner:{
         type: Schema.Types.ObjectId
-      }
+      },
+
+      place: {
+        type: Schema.Types.ObjectId
+       }
   },
 
       {
