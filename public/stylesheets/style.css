@@ -2,8 +2,19 @@
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+/* -------- BOOTSTRAP ------------ */
+
+
+
+
+
+
+/*-----------------------------------*/
+
+
 .homepage {
-  /*padding: 50px;*/
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: lightblue;
 }
@@ -14,6 +25,7 @@ a {
 }
 
 /* -------- index page ------- */
+
 
 .center-header{
   text-align: center;
@@ -32,7 +44,7 @@ a {
 
 .index h1{
   font-size: 4em;
-  padding-top: 20px;
+  padding-top: 5px;
   margin-bottom: 200px;
 }
 
@@ -46,7 +58,7 @@ a {
 .index-list-place{
   width: 22%;
   background-color: white;
-  height: 200px;
+  height: 250px;
   border-radius: 30px;
   margin-top: 30px;
 }
@@ -55,21 +67,23 @@ a {
   list-style-type: none;
 }
 
+.list img{
+  width: 80%;
+  height: 100px;
+}
+
 
 .index-list{
   text-align: center;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
-.index-list h3{
-  margin-bottom: 10px;
-}
 
 
 .index-list-place .list {
-  padding: 40px;
   text-align: center;
-  line-height: 50px;
+  line-height: 30px;
+  padding-top: 20px;
 }
 
 #search-input{
@@ -92,6 +106,7 @@ a {
 
 
 /* ------------- Forms ------------- */
+
 #form {
   margin: 30px auto;
   width: 380px;
@@ -210,6 +225,7 @@ nav {
 
 /* ---------------- Place Details --------------- */
 
+
 .place-details h1{
   margin: 20px;
   padding-top: 20px;
@@ -313,6 +329,7 @@ nav {
 
 
 /* -------------- Places ---------------- */
+
 
 .places-list{
   width: 50%;

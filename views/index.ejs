@@ -27,8 +27,9 @@
       <div class="index-list-place">
         <ul class="list">
           <li>
+            <img src="<%= onePlace.image %>" />
             <h3> <%= onePlace.name %> </h3>
-            <p> <%=onePlace.country %> </p>
+            <p> <%= onePlace.country %> </p>
           </li>
 
           <a href="/places/details/<%=onePlace._id%>">

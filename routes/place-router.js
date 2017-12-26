@@ -81,6 +81,13 @@ router.get("/places/details/:Id", (req, res, next) => {
     })
     .then((tripResults) => {
       res.locals.listOfTrips = tripResults;
+
+      return UserModel
+      .findById(tripResults.owner)
+      .exec();
+    })
+    .then((userFromDb) => {
+      res.locals.userDetails = userFromDb;
       res.render("place-views/place-details");
     })
     .catch((err) => {
